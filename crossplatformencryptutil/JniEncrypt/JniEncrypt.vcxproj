@@ -131,7 +131,6 @@
     <ClInclude Include="..\EncryptCore\md5\md32_common.h" />
     <ClInclude Include="..\EncryptCore\md5\md5.h" />
     <ClInclude Include="..\EncryptCore\md5\md5_locl.h" />
-    <ClInclude Include="com_example_encrypt_JniEncryptUtil.h" />
     <ClInclude Include="jni.h" />
     <ClInclude Include="jni_md.h" />
   </ItemGroup>

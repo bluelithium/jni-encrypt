@@ -51,9 +51,6 @@
     <ClInclude Include="..\EncryptCore\md5\md32_common.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="com_example_encrypt_JniEncryptUtil.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="JniEncryptUtil.cpp">
