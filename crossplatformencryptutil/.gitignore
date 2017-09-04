@@ -30,7 +30,6 @@ $tf*/
 EncryptAndroidUtil-win.opensdf
 ipch/
 *.sdf
-*.sln
 *x64/
 *ipch/
 *Debug/
