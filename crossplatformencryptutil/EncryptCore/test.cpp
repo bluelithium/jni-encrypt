@@ -16,14 +16,11 @@ void testUnit();
 
 int main(int argc, char* argv[])
 {
-
-	//ƒ⁄¥Ê≤‚ ‘
-	/*for (int ix = 0; ix != 10000000; ix++)
-	{
+	// test memory link
+	for (int ix = 0; ix != 100000; ix++) {
 		testUnit();
-	}*/
-
-	testUnit();
+	}
+	
 
 	getchar();
 	return 0;
@@ -64,7 +61,7 @@ void testUnit()
 	printf("base64 decode: %s\n", pPlainText);
 
 
-	//≤‚ ‘MD5
+	//test MD5
 	for(int i=1;i<1000;i++){
 		Md5SignTool * pMd5Sign = new Md5SignTool();
 		std::vector<std::string> * pVec_strs = new std::vector<std::string>();
