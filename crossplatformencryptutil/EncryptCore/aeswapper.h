@@ -4,16 +4,16 @@
 class AesWapper 
 {
 public:
-	//����
+	//AES 加密
 	bool Encrypt(unsigned char * pInBuffer, int nSize, unsigned char * pOutBuffer);
 
-	//����
+	//AES 解密
 	bool Decrypt(unsigned char * pInBuffer, int nSize, unsigned char * pOutBuffer);
 
-	//��ȡ���ܺ󻺳�������
+	//获取加密后的buffer大小
 	int GetEncryptedSize( int nSrcSize );
 private:
-	//������Կ,��Կ���ȱ���Ϊ128bit(16)
+	//生成加密KEy 128bit(16)
 	void GenerateKey(unsigned char * key, int keySize);
 };
 

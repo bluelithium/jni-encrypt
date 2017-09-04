@@ -7,10 +7,10 @@
 #include "../EncryptCore/md5signtool.h"
 #include "cn_javatiku_keymanager_utils_JniEncryptUtil.h"
 
-#define SRC_LEN_SIZE 4				//����ԭʼ��������С��ռ�Ŀռ�
+#define SRC_LEN_SIZE 4				//保存原始缓存区大小所占的空间
 
-JNIEXPORT jbyteArray JNICALL Java_cn_javatiku_keymanager_utils_JniEncryptUtil_decryptString
-	(JNIEnv *env, jclass, jbyteArray srcBytes)
+JNIEXPORT jbyteArray JNICALL Java_com_example_encrypt_JniEncryptUtil_decryptString
+(JNIEnv *env, jclass, jbyteArray srcBytes)
 {
 	jbyteArray jbyteRet = NULL;
 	AesWapper * pAes = NULL;
@@ -25,7 +25,7 @@ JNIEXPORT jbyteArray JNICALL Java_cn_javatiku_keymanager_utils_JniEncryptUtil_de
 	unsigned char * pBase64Buffer = (unsigned char*)env->GetByteArrayElements(srcBytes, NULL);
 	int nBase64Size = (int)env->GetArrayLength(srcBytes);
 
-	//Step 1 : base64 ����
+	//Step 1 : base64 解码
 	pBase64 = new Base64();
 	if (pBase64 == NULL)
 	{
@@ -38,7 +38,7 @@ JNIEXPORT jbyteArray JNICALL Java_cn_javatiku_keymanager_utils_JniEncryptUtil_de
 		goto _exit_zd;
 	}
 
-	//Step 2 : AES ����
+	//Step 2 : AES 解密
 	pAes = new AesWapper();
 	pOut = new unsigned char[nWillDecryptBufferSize];
 	memset(pOut, 0, nWillDecryptBufferSize);
@@ -48,7 +48,7 @@ JNIEXPORT jbyteArray JNICALL Java_cn_javatiku_keymanager_utils_JniEncryptUtil_de
 	}
 	else
 	{
-		//step 3 : ���ݻ�����pWillEncryptBufferǰ4�ֽ�,�ó�����ǰ��������С
+		//step 3 : 根据缓存区pWillEncryptBuffer前4字节,得出加密前缓存区大小
 		int nSrcLen = 0;
 		memcpy(&nSrcLen, pOut, SRC_LEN_SIZE);
 
@@ -100,8 +100,8 @@ _exit_zd:
 	return jbyteRet;
 }
 
-JNIEXPORT jbyteArray JNICALL Java_cn_javatiku_keymanager_utils_JniEncryptUtil_encryptString
-	(JNIEnv *env, jclass, jbyteArray srcBytes)
+JNIEXPORT jbyteArray JNICALL Java_com_example_encrypt_JniEncryptUtil_encryptString
+(JNIEnv *env, jclass, jbyteArray srcBytes)
 {
 	jbyteArray jbyteRet = NULL;
 	int nEncryptedSize = 0;
@@ -112,23 +112,23 @@ JNIEXPORT jbyteArray JNICALL Java_cn_javatiku_keymanager_utils_JniEncryptUtil_en
 
 	unsigned char * pSrcBuffer = (unsigned char*)env->GetByteArrayElements(srcBytes, NULL);
 
-	//step 1 :�����ܻ�����ԭʼ���ȱ��浽���ܻ�����ǰ4���ֽ�
+	//step 1 :将加密缓存区原始长度保存到加密缓存区前4个字节
 	int nSrclen = (int)env->GetArrayLength(srcBytes);
-	unsigned char * pWillEncryptBuffer = new unsigned char[nSrclen + SRC_LEN_SIZE];//�����4�����ȣ���Ϊ�˱���ԭʼ��������С
+	unsigned char * pWillEncryptBuffer = new unsigned char[nSrclen + SRC_LEN_SIZE];//这里加4个长度，是为了保存原始缓存区大小
 	memset(pWillEncryptBuffer, 0, nSrclen);
 	memcpy(pWillEncryptBuffer, &nSrclen, SRC_LEN_SIZE);
 	memcpy(pWillEncryptBuffer + SRC_LEN_SIZE, pSrcBuffer, nSrclen);
 
-	//step 2 : ����
+	//step 2 : 加密
 	AesWapper * pAesWapper = new AesWapper();
 	if (pAesWapper == NULL)
 	{
 		goto _exit_zd;
 	}
 
-	// *  ������Ҫע�⡡aes cbc ģʽ���ܺ�ĳ��Ȼᱻ����AES��ȥ��䣬
-	// * ����಻�ᳬ��һ�� AES_BLOCK_SIZE�������������һ���������ռ�
-	nEncryptedSize =  pAesWapper->GetEncryptedSize(nSrclen + SRC_LEN_SIZE);
+	// *  这里需要注意　aes cbc 模式加密后的长度会被按照AES块去填充，
+	// * 但最多不会超过一个 AES_BLOCK_SIZE，因此这里申请一个最大的填充空间
+	nEncryptedSize = pAesWapper->GetEncryptedSize(nSrclen + SRC_LEN_SIZE);
 	pOut = new unsigned char[nEncryptedSize];
 	if (pOut == NULL)
 	{
@@ -142,7 +142,7 @@ JNIEXPORT jbyteArray JNICALL Java_cn_javatiku_keymanager_utils_JniEncryptUtil_en
 		goto _exit_zd;
 	}
 
-	//step 2 ��base64
+	//step 2 ：base64
 	pBase64Wapper = new Base64();
 	pBase64Buffer = pBase64Wapper->Encoder((const unsigned char*)pOut, nEncryptedSize, &nOutputLen);
 	if (pBase64Buffer == NULL)
@@ -194,12 +194,12 @@ _exit_zd:
 	return jbyteRet;
 }
 
-std::string CopyToString(const char * pBuffer, int nLen) 
+std::string CopyToString(const char * pBuffer, int nLen)
 {
 	std::string retString = "";
 	char * pTemp = new char[nLen + 1];
 
-	if( pTemp != NULL ) {
+	if (pTemp != NULL) {
 		memset(pTemp, 0, nLen + 1);
 		memcpy(pTemp, pBuffer, nLen);
 		retString = pTemp;
@@ -210,8 +210,8 @@ std::string CopyToString(const char * pBuffer, int nLen)
 	return retString;
 }
 
-JNIEXPORT jstring JNICALL Java_cn_javatiku_keymanager_utils_JniEncryptUtil_generateUrlSign
-	(JNIEnv * env, jclass ,jbyteArray jbaApi, jbyteArray jbaUrl, jbyteArray jbaTimestamp, jbyteArray jbaToken)
+JNIEXPORT jstring JNICALL Java_com_example_encrypt_JniEncryptUtil_generateUrlSign
+(JNIEnv * env, jclass, jbyteArray jbaApi, jbyteArray jbaUrl, jbyteArray jbaTimestamp, jbyteArray jbaToken)
 {
 	jstring jsRet = NULL;
 	std::vector<std::string> vec_strs;
@@ -228,10 +228,10 @@ JNIEXPORT jstring JNICALL Java_cn_javatiku_keymanager_utils_JniEncryptUtil_gener
 	const char * pToken = (const char*)env->GetByteArrayElements(jbaToken, NULL);
 	int nTokenLen = env->GetArrayLength(jbaToken);
 
-	vec_strs.push_back( CopyToString( pApi, nApiLen) );
-	vec_strs.push_back( CopyToString( pUrl, nUrlLen) );
-	vec_strs.push_back( CopyToString(pTimestamp, nTimestampLen));
-	vec_strs.push_back( CopyToString(pToken, nTokenLen) );
+	vec_strs.push_back(CopyToString(pApi, nApiLen));
+	vec_strs.push_back(CopyToString(pUrl, nUrlLen));
+	vec_strs.push_back(CopyToString(pTimestamp, nTimestampLen));
+	vec_strs.push_back(CopyToString(pToken, nTokenLen));
 
 	Md5SignTool * pMd5Signtool = new Md5SignTool();
 	std::string stMd5Hex = pMd5Signtool->Sign(vec_strs);
@@ -270,8 +270,8 @@ JNIEXPORT jstring JNICALL Java_cn_javatiku_keymanager_utils_JniEncryptUtil_gener
 	return jsRet;
 }
 
-JNIEXPORT jstring JNICALL Java_cn_javatiku_keymanager_utils_JniEncryptUtil_getVersion
-	(JNIEnv * env, jclass)
+JNIEXPORT jstring JNICALL Java_com_example_encrypt_JniEncryptUtil_getVersion
+(JNIEnv * env, jclass)
 {
 	return env->NewStringUTF("V 1.0");
 }
