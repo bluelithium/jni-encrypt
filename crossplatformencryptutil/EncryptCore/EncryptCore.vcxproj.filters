@@ -18,9 +18,6 @@
     <ClCompile Include="aeswapper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="AES_CBC.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="base64.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -37,6 +34,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="md5\md5_one.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
