@@ -1,0 +1,13 @@
+.idea/
+*.iml
+*target/
+*.pyc
+out/
+.classpath
+.project
+.settings/
+*/WEB-INF/lib
+$*
+*.bak
+*.dat
+*/upload/
