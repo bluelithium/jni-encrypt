@@ -53,9 +53,6 @@
     <ClInclude Include="md5signtool.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="aes\aes.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="openssl\md5.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -66,6 +63,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="openssl\rsa.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="openssl\aes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
