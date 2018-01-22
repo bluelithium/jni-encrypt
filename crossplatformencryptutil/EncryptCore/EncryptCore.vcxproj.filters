@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
     </Filter>
+    <Filter Include="openssl">
+      <UniqueIdentifier>{a623e0d4-5748-49d8-a5e9-5d298b4c37e3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="aeswapper.cpp">
@@ -31,16 +34,16 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="openssl\aes_core.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>openssl</Filter>
     </ClCompile>
     <ClCompile Include="openssl\cbc128.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="openssl\md5_dgst.c">
-      <Filter>Source Files</Filter>
+      <Filter>openssl</Filter>
     </ClCompile>
     <ClCompile Include="openssl\md5_one.c">
-      <Filter>Source Files</Filter>
+      <Filter>openssl</Filter>
+    </ClCompile>
+    <ClCompile Include="openssl\md5_dgst.c">
+      <Filter>openssl</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -53,23 +56,23 @@
     <ClInclude Include="md5signtool.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="openssl\md5.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="openssl\md5_locl.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="openssl\md32_common.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="stdafx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="openssl\rsa.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="openssl\aes.h">
-      <Filter>Header Files</Filter>
+      <Filter>openssl</Filter>
+    </ClInclude>
+    <ClInclude Include="openssl\md5.h">
+      <Filter>openssl</Filter>
+    </ClInclude>
+    <ClInclude Include="openssl\md5_locl.h">
+      <Filter>openssl</Filter>
+    </ClInclude>
+    <ClInclude Include="openssl\md32_common.h">
+      <Filter>openssl</Filter>
+    </ClInclude>
+    <ClInclude Include="openssl\rsa.h">
+      <Filter>openssl</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="opensssl">
+      <UniqueIdentifier>{a139601d-7239-4f0c-ad98-a8b607325b43}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="jni.h">
@@ -31,25 +34,25 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\EncryptCore\openssl\aes.h">
-      <Filter>Header Files</Filter>
+      <Filter>opensssl</Filter>
     </ClInclude>
     <ClInclude Include="..\EncryptCore\openssl\aes_locl.h">
-      <Filter>Header Files</Filter>
+      <Filter>opensssl</Filter>
     </ClInclude>
     <ClInclude Include="..\EncryptCore\openssl\md5.h">
-      <Filter>Header Files</Filter>
+      <Filter>opensssl</Filter>
     </ClInclude>
     <ClInclude Include="..\EncryptCore\openssl\md5_locl.h">
-      <Filter>Header Files</Filter>
+      <Filter>opensssl</Filter>
     </ClInclude>
     <ClInclude Include="..\EncryptCore\openssl\md32_common.h">
-      <Filter>Header Files</Filter>
+      <Filter>opensssl</Filter>
     </ClInclude>
     <ClInclude Include="..\EncryptCore\openssl\misc.h">
-      <Filter>Header Files</Filter>
+      <Filter>opensssl</Filter>
     </ClInclude>
     <ClInclude Include="..\EncryptCore\openssl\modes.h">
-      <Filter>Header Files</Filter>
+      <Filter>opensssl</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -66,16 +69,16 @@
       <Filter>Resource Files</Filter>
     </ClCompile>
     <ClCompile Include="..\EncryptCore\openssl\aes_core.cpp">
-      <Filter>Resource Files</Filter>
+      <Filter>opensssl</Filter>
     </ClCompile>
     <ClCompile Include="..\EncryptCore\openssl\cbc128.cpp">
-      <Filter>Resource Files</Filter>
+      <Filter>opensssl</Filter>
     </ClCompile>
     <ClCompile Include="..\EncryptCore\openssl\md5_dgst.c">
-      <Filter>Resource Files</Filter>
+      <Filter>opensssl</Filter>
     </ClCompile>
     <ClCompile Include="..\EncryptCore\openssl\md5_one.c">
-      <Filter>Resource Files</Filter>
+      <Filter>opensssl</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
