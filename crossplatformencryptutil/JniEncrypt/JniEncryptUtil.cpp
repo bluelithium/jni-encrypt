@@ -1,7 +1,4 @@
-#include <vector>
-#include <string>
-#include <cstring>
-
+#include "stdafx.h"
 #include "../EncryptCore/aeswapper.h"
 #include "../EncryptCore/base64.h"
 #include "../EncryptCore/md5signtool.h"

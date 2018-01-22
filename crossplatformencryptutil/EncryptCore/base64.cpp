@@ -1,6 +1,4 @@
-#include <iostream>
-#include <cstring>
-#include <stdlib.h>
+#include "stdafx.h"
 #include "base64.h"
 
 

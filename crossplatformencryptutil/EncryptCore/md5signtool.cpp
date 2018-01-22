@@ -1,9 +1,6 @@
-#include <string>
-#include <vector>
-#include <sstream>
-#include <cstring>
-#include "md5/md5.h"
-#include "aes/aes.h"
+#include "stdafx.h"
+#include "openssl/md5.h"
+#include "openssl/aes.h"
 #include "md5signtool.h"
 
 std::string Md5SignTool::Byte2Hex(unsigned char bArray[], int nArraySize)

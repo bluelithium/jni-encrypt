@@ -122,26 +122,26 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\EncryptCore\aeswapper.h" />
-    <ClInclude Include="..\EncryptCore\aes\aes.h" />
-    <ClInclude Include="..\EncryptCore\aes\aes_locl.h" />
-    <ClInclude Include="..\EncryptCore\aes\misc.h" />
-    <ClInclude Include="..\EncryptCore\aes\modes.h" />
     <ClInclude Include="..\EncryptCore\base64.h" />
     <ClInclude Include="..\EncryptCore\md5signtool.h" />
-    <ClInclude Include="..\EncryptCore\md5\md32_common.h" />
-    <ClInclude Include="..\EncryptCore\md5\md5.h" />
-    <ClInclude Include="..\EncryptCore\md5\md5_locl.h" />
+    <ClInclude Include="..\EncryptCore\openssl\aes.h" />
+    <ClInclude Include="..\EncryptCore\openssl\aes_locl.h" />
+    <ClInclude Include="..\EncryptCore\openssl\md32_common.h" />
+    <ClInclude Include="..\EncryptCore\openssl\md5.h" />
+    <ClInclude Include="..\EncryptCore\openssl\md5_locl.h" />
+    <ClInclude Include="..\EncryptCore\openssl\misc.h" />
+    <ClInclude Include="..\EncryptCore\openssl\modes.h" />
     <ClInclude Include="jni.h" />
     <ClInclude Include="jni_md.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\EncryptCore\aeswapper.cpp" />
-    <ClCompile Include="..\EncryptCore\aes\aes_core.cpp" />
-    <ClCompile Include="..\EncryptCore\aes\cbc128.cpp" />
     <ClCompile Include="..\EncryptCore\base64.cpp" />
     <ClCompile Include="..\EncryptCore\md5signtool.cpp" />
-    <ClCompile Include="..\EncryptCore\md5\md5_dgst.c" />
-    <ClCompile Include="..\EncryptCore\md5\md5_one.c" />
+    <ClCompile Include="..\EncryptCore\openssl\aes_core.cpp" />
+    <ClCompile Include="..\EncryptCore\openssl\cbc128.cpp" />
+    <ClCompile Include="..\EncryptCore\openssl\md5_dgst.c" />
+    <ClCompile Include="..\EncryptCore\openssl\md5_one.c" />
     <ClCompile Include="JniEncryptUtil.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

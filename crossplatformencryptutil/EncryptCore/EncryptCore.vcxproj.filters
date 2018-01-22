@@ -24,19 +24,22 @@
     <ClCompile Include="md5signtool.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="aes\aes_core.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="aes\cbc128.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="md5\md5_dgst.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="md5\md5_one.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="rsawapper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="openssl\aes_core.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="openssl\cbc128.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="openssl\md5_dgst.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="openssl\md5_one.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -53,22 +56,16 @@
     <ClInclude Include="aes\aes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="aes\aes_locl.h">
+    <ClInclude Include="openssl\md5.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="aes\misc.h">
+    <ClInclude Include="openssl\md5_locl.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="aes\modes.h">
+    <ClInclude Include="openssl\md32_common.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="md5\md32_common.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="md5\md5.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="md5\md5_locl.h">
+    <ClInclude Include="stdafx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

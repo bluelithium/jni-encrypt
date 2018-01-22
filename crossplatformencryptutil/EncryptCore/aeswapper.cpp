@@ -1,6 +1,5 @@
-#include <stdlib.h>
-#include <string.h>
-#include "aes/aes.h"
+#include "stdafx.h"
+#include "openssl/aes.h"
 #include "aeswapper.h"
 
 #define AES_BLOCK_SIZE 16
